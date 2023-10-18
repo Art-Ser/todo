@@ -6,12 +6,11 @@ export const App = () => {
   const [todoText, setTodoText] = useState("")
   const [todoList, setTodoList] = useState<ITodoItem[]>([
     { id: Date.now(), text: "my work", done: false }
-  ])
-  const onChange = (value: string) => setTodoText(value)
+  ]);
 
+  const onChange = (value: string) => setTodoText(value)
   const addText = () => {
     if (todoText.trim()) {
-
       setTodoList((prevState) => [
         ...prevState,
         { id: Date.now(), text: todoText.trim(), done: false }
@@ -38,7 +37,6 @@ export const App = () => {
     setTodoList(newArr)
   }
 
-
   return (
     <div className="App">
       <Input
@@ -47,7 +45,6 @@ export const App = () => {
         onChange={onChange}
         type="text"
       />
-
       <Button onClick={addText}>Add</Button>
       <List handleCheck={handleCheck} todoList={todoList} deleteItem={deleteItem}/>
     </div>
